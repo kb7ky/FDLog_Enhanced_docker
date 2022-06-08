@@ -1,38 +1,67 @@
-GITHUB README: 
+FDLOG = Field Day Logging Program                    6/2006 A K Biocca
 
-	This program is 34 years old!! And it keeps on going..
+FDLOG is distributed under the GNU Public License
 
-	Alan K Biocca W6AKB (Formerly WB6ZQZ) Wrote this in 1984 using small c 
-	and it was titled "WB6ZQZ's Field Day Logging Program". In 2002, Mr Biocca 
-	rewrote the program in Python and renamed it FDLog. That year, FDLog was 
-	released as open source with the GNU License. The original FDLog is still in 
-	use by the High Sierra Field Day Group and maintained by Mr Biocca at 			www.fdlog.info. 
+$Revision: 1.23 $
 
-	My name is Scott Hibbs KD4SIR. I found FDLog on the internet and started using it
-	for Field Day 2012. In love with it, I immediately started learning Python. After
-	using FDLog for Field Day 2013, the South Central Indiana Communications Support
-	Group (SCICSG - we pronounce it scuzzy) wanted to know their individual scores and 
-	wanted a quick way to see "who" was on which bands. When our upgrades were not 
-	acted on by Mr Biocca, we decided to modify the program for ourselves for 2014. 
-	We have enhanced the original program 80 times now and occasionally we have and 
-	will pick up some of Mr Biocca's new ideas too.  
+  This program is designed to support Amateur Radio Field Day Operations by 
+providing a robust multiplatform networked distributed logging database and
+information service.
 
-	We hope you fall in love with the program (like we have) and can help us improve it. 
-	Send suggestions, help, pull request, ideas to Scott Hibbs at gmail.com
-	
-	Please look in the Releaselog file to see a list of our Enhancements!
 
-ITEMS WE ARE WORKING ON NEXT:
+Introduction
 
-	Future Updates:
-		* Reprint the log after an edit for clarity (turn black not stay blue)
-		* Change the visitor/participant entry so the initials are not first.
-		* copy/paste and up arrow (to reprint the last entry) in the program.
-		* Add more scoring: 
-			complex gota points, youth, information table, official visitors, 
-			max 20 radios, power multipliers, educational activity... 
-		* An Information Table node that will allow sign in, show our group score, 
-			the top 5 operators, the top 5 visitors, Worked All States etc.
-		* Phonetics at the bottom of the screen for our call exchange (gota too)
-	Future Fixes: 
-		# Dupe check for requested fills - 2 UNconnected nodes can dupe and both 			count when connected. (currently dupe checking is at entry - not on fills)
+  This is a complete rewrite of W6AKB/WB6ZQZ's Field Day Logging program.
+It is nearly 20 years old (in 2002), but this new version has many new
+features, primary of which is the ability to synchronize the logfile database
+across a network in a peer to peer fashion, avoiding single points of failure. 
+The expectation is that a wireless network will be used.
+
+  To run this program you will need to install Python. The
+development was done on win2k under Python 2.2-2.7 and Tkinter, but it also
+runs on Linux and the Mac with most features. Python is available
+from www.python.org. There was a directly executable version of FDLog called
+fdlogexe.zip. This is a larger download but it works without Python installed.
+It only works in Windows. It has not been built in some years.
+
+  Networking is required to use the data sync features of the program. A
+broadcast is used, so stations on the same subnet running the program will
+sync databases.  An authentication code is used, so only stations with the
+same auth code will be able to share data.
+
+  Setting up ad-hoc or peer-peer 802.11 networking is beyond the scope of this 
+note. This should be done prior to running the logging software. Note that each
+station does need a distinct hostname for proper database synchronization. See
+the separate note on wireless networking.
+
+  The computer's clock accuracy is important, so set it before starting the log 
+program. This will reduce the amount of correction the internal time sync has
+to compensate for. Designate one computer as the master timekeeper (and set
+this in FDLog). Then all program time clocks will track that one.
+
+  Getting the latest version of the program on Field Day will at our site is 
+handled by a small web server on one of the development machines. Other files 
+like Python and FD rules will be available there as well. See the Help/802.11 
+note for details. Python 2.2 to 2.7 have been used successfully with the
+software. It is NOT Python 3 compatible!
+
+  Installing the FDLOG program is straightforward - all that is needed is a
+directory with the files in it. The program will create database and log files
+in this directory. Unpack the zipfile in the directory you have chosen. If you
+want access to the Field Day rules (a menu item under help) download the ARRL
+Field Day Rules package and rename it to 'fdrules.pdf' and add it to the dir.
+Viewing pdf files requires Adobe Acrobat, available from www.adobe.com.
+Launching the pdf file from Python may only work on win32 systems.
+The index.htm file contains links to all the documentation as well, so
+launching your web browser (double click on index.htm) provides
+program-independent access to the docs.  
+  The FDLOG program is launched by double-clicking on the fdlog.py icon in the 
+directory. For convenience you may want to create a shortcut on the desktop.
+
+  Starting the program the first time will ask a few questions as it sets up.
+
+  Visit the help menu 'Help/Getting Started' for further instructions.
+
+Thanks, Alan Biocca, W6AKB at ARRL.net
+
+eof

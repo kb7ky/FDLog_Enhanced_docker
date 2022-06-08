@@ -1,0 +1,38 @@
+version:  "3"
+
+services:
+  fdlog1:
+    image: fdlog
+    build: ./
+    command: supervisord -c /etc/supervisor/supervisord.conf
+    logging:
+      driver: local
+      options:
+        max-file: "5"
+        max-size: "10m"
+    ports:
+      - 6080:6080
+    volumes:
+      - type: bind
+        source: /tmp/fdlog1
+        target: /fdlog/data
+    networks:
+      - udp1
+  fdlog2:
+    image: fdlog
+    command: supervisord -c /etc/supervisor/supervisord.conf
+    logging:
+      driver: local
+      options:
+        max-file: "5"
+        max-size: "10m"
+    ports:
+      - 6081:6080
+    volumes:
+      - type: bind
+        source: /tmp/fdlog2
+        target: /fdlog/data
+    networks:
+      - udp1
+networks:
+  udp1:
